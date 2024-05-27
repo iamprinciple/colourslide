@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Carousel</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+    body{
+    width: 100%;
+    height: 100vh;
+}
+.main-dv{
+    height: 675px;
+    background: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.colour-dv{
+    width: 50%;
+    height: 500px;
+    background-color: transparent;
+    border-radius: 40px;
+    border: 1px solid gray;
+    margin: auto;
+    box-shadow: 15px 15px 35px;
+}
+.main-dv button{
+    width: 200px;
+    height: 40px;
+    border: 3px solid firebrick;
+    border-radius: 20px;
+    background-color: transparent;
+    color: black;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: cursive;
+}
+.main-dv button:hover{
+    background-color: rgb(240, 184, 184);
+}
+</style>
+<body>
+    <div class="main-dv">
+        <div class="colour-dv" id="Colours"></div>
+        <button onclick="next()">NEXT</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let colors = [
+        {name: 'Red', value: 'red'},
+        {name: 'Green', value: 'green'},
+        {name: 'black', value: 'black'},
+        {name: 'Yellow', value: 'yellow'},
+        {name: 'Pink', value: 'pink'},
+        {name: 'White', value: 'white'},
+    ]
+    let currentColour = 0
+
+    let carouselColours = document.getElementById('Colours')
+
+    function next() {
+        if (currentColour < colors.length - 1) {
+            currentColour++
+        } else {
+            currentColour = 0
+        }
+        newColour()
+    }
+    function newColour() {
+        let color = colors[currentColour];
+        carouselColours.style.backgroundColor = color.value
+    }
+    // newColour()
+</script>
